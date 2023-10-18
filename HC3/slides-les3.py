@@ -16,7 +16,7 @@ lijst = [4,9,1,3,5,2]
 #
 # # I: alle elementen in lijst met een index < goed
 # #    staan op hun plaats in de gesorteerde lijst
-# for goed in range(len(lijst)-1):
+# for goed in range(len(lijst)):
 #     # zoek de index van het kleinste element in de lijst met
 #     # een index >= goed
 #     i_min = goed
@@ -229,6 +229,14 @@ lijst = [4,9,1,3,5,2]
 # print(tupel)
 # a+=[7]
 # print(tupel)
+#
+# a = "immutable"
+# b = "string"
+# tupel = (a,b)
+# print(tupel)
+# a+= " tralala"
+# print(tupel)
+
 
 #
 # studenten = {"Jan","Piet","Joris","Korneel"}
@@ -285,6 +293,22 @@ lijst = [4,9,1,3,5,2]
 # studentenLijst.clear()
 # print(studentenLijst)
 #
+
+# set1 = {'a','b','c'}
+# set2 = {'c', 'd', 'e'}
+#
+# print(set1,set2)
+# print(set1 | set2)
+# print(set1,set2)
+# print(set1.union(set2))
+# print(set1,set2)
+#
+#
+#
+
+
+
+
 # telefoonboek = {} # een lege dictionary
 # telefoonboek["jens"] = "7657"
 # telefoonboek["jarne"] = "7657"
@@ -294,18 +318,20 @@ lijst = [4,9,1,3,5,2]
 # telefoonboek["michiel"] = "1010"
 # print(telefoonboek)
 
-# telefoonboek = {"jens":7657, "jarne":7657, "michiel":2402}
-# legeD = dict()
-# print(legeD)
-# kopie = dict(telefoonboek)
-# print(kopie)
-#
-# print(kopie['jarne'])
-# print(kopie.get("michiel"))
-# print(kopie.get("patrick",-1))
-# kopie.pop('jens')
-# print(kopie)
-#
+telefoonboek = {"jens":7657, "jarne":7657, "michiel":2402}
+legeD = dict()
+print(legeD)
+kopie = dict(telefoonboek)
+print(kopie)
+
+print(kopie['jarne'])
+print(kopie.get("michiel"))
+print(kopie.get("patrick",-1))
+print(kopie.pop('jens'))
+print(kopie)
+kopie.pop()
+print(kopie)
+
 # telefoonboek = {"jens":7657, "jarne":7657, "michiel":2402}
 # print(telefoonboek.keys())
 # print(telefoonboek.values())
@@ -315,20 +341,20 @@ lijst = [4,9,1,3,5,2]
 # print(sorted(telefoonboek.items()))
 
 
-
-
-tekst = input("Enter text: ")
-telling = {} # we gaan het voorkomen van tekens tellen
-for c in tekst:
-    if c not in telling:
-        telling[c] = 1
-    else:
-        telling[c] += 1
-print(telling)
-print(sorted(telling))
-for c in sorted(telling):
-    if 'a' <= c.lower() <= 'z':
-        print(c,telling[c])
+#
+#
+# tekst = input("Enter text: ")
+# telling = {} # we gaan het voorkomen van tekens tellen
+# for c in tekst:
+#     if c not in telling:
+#         telling[c] = 1
+#     else:
+#         telling[c] += 1
+# print(telling)
+# print(sorted(telling))
+# for c in sorted(telling):
+#     if 'a' <= c.lower() <= 'z':
+#         print(c,telling[c])
 
 #
 # tekst = input("Enter text: ")
