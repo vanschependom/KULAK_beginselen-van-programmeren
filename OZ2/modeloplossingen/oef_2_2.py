@@ -3,7 +3,7 @@ getal = int(input("Geef een getal in: "))
 
 is_priem = True
 
-for i in range(2, getal): # eventueel kan je slechts lopen tot int(getal/2)
+for i in range(2, getal/2): # eventueel kan je slechts lopen tot int(getal/2)
     # Controlleer voor alle getallen of ze een deler zijn
     if getal % i == 0:
         is_priem = False
