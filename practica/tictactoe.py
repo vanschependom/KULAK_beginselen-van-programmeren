@@ -102,7 +102,7 @@ def controleer_diagonaal():
 # Controleren of een zet valid is
 def controleer_zet(x,y):
 
-    if bord[x-1][y-1] == "" and (1 <= x <= 3) and (1 <= y <= 3):
+    if (1 <= x <= 3) and (1 <= y <= 3) and bord[x-1][y-1] == "":
 
         return True
     
