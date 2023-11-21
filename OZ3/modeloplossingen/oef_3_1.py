@@ -13,5 +13,3 @@ while idx < aantal_staven:
 max_lengte_staaf = max(lengte_van_staven)
 for lstaaf in lengte_van_staven:
     print(symbool*int(lstaaf/max_lengte_staaf*40))
-    
-
