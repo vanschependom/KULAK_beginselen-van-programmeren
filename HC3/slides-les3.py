@@ -1,7 +1,7 @@
 import math
 # Opmerking: je kan in PyCharm makkelijk de lijncomments verwijderen via
 # het menu Code/Comment with line comment...
-lijst = [4,9,1,3,5,2]
+lijst = [4, 9, 1, 3, 5, 2]
 #
 # klaar = False
 # lijst = []
@@ -14,22 +14,29 @@ lijst = [4,9,1,3,5,2]
 #
 # print(lijst)
 #
-# # I: alle elementen in lijst met een index < goed
-# #    staan op hun plaats in de gesorteerde lijst
-# for goed in range(len(lijst)):
-#     # zoek de index van het kleinste element in de lijst met
-#     # een index >= goed
-#     i_min = goed
-#     for i in range(goed+1,len(lijst)):
-#         if lijst[i] < lijst[i_min]:
-#             i_min = i
-#     # wissel het gevonden element met
-#     # element op de huidige index goed
-#     if goed != i_min:
-#         h = lijst[goed]
-#         lijst[goed] = lijst[i_min]
-#         lijst[i_min] = h
-# print(lijst)
+
+lijst = [2, 1, 6, 9, 10, 4, 3]
+
+# I: alle elementen in lijst met een index < goed
+#    staan op hun plaats in de gesorteerde lijst
+for goed in range(len(lijst)):
+    print(lijst[goed])
+    # zoek de index van het kleinste element in de lijst met
+    # een index >= goed
+    i_min = goed
+    for i in range(goed+1, len(lijst)):
+        if lijst[i] < lijst[i_min]:
+            i_min = i
+
+    print(lijst[i_min], end="\n\n")
+    # wissel het gevonden element met
+    # element op de huidige index goed
+    if goed != i_min:
+        h = lijst[goed]
+        lijst[goed] = lijst[i_min]
+        lijst[i_min] = h
+        print(lijst)
+print(lijst)
 #
 
 
@@ -307,8 +314,6 @@ lijst = [4,9,1,3,5,2]
 #
 
 
-
-
 # telefoonboek = {} # een lege dictionary
 # telefoonboek["jens"] = "7657"
 # telefoonboek["jarne"] = "7657"
@@ -318,19 +323,19 @@ lijst = [4,9,1,3,5,2]
 # telefoonboek["michiel"] = "1010"
 # print(telefoonboek)
 
-telefoonboek = {"jens":7657, "jarne":7657, "michiel":2402}
-legeD = dict()
-print(legeD)
-kopie = dict(telefoonboek)
-print(kopie)
+# telefoonboek = {"jens": 7657, "jarne": 7657, "michiel": 2402}
+# legeD = dict()
+# print(legeD)
+# kopie = dict(telefoonboek)
+# print(kopie)
 
-print(kopie['jarne'])
-print(kopie.get("michiel"))
-print(kopie.get("patrick",-1))
-print(kopie.pop('jens'))
-print(kopie)
-kopie.pop()
-print(kopie)
+# print(kopie['jarne'])
+# print(kopie.get("michiel"))
+# print(kopie.get("patrick", -1))
+# print(kopie.pop('jens'))
+# print(kopie)
+# kopie.pop()
+# print(kopie)
 
 # telefoonboek = {"jens":7657, "jarne":7657, "michiel":2402}
 # print(telefoonboek.keys())
