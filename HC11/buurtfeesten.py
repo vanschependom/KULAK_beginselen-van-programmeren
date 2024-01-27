@@ -140,10 +140,7 @@ class Comitelid:
         '''
         GREATER THAN
         Vergelijkt twee Comitéleden
-        self is groter dan other indien de naam van self
-        alfabetisch na de naam van other komt.
-        Indien beide dezelfde naam hebben wordt het adres
-        gebruikt om te vergelijken.
+        self is groter dan other indien other kleiner is dan self
         Parameters
         ----------
         other : Comitelid
@@ -151,10 +148,35 @@ class Comitelid:
         -------
         bool
         '''
-        if self.getNaam() == other.getNaam():
-            return self.getAdres() > other.getAdres()
-        else:
-            return self.getNaam() > other.getNaam()
+        return other < self
+
+    def __le__(self, other):
+        '''
+        LESS THAN OR EQUAL
+        Vergelijkt twee Comitéleden
+        Geeft True indien self kleiner dan of gelijk is aan other.
+        Parameters
+        ----------
+        other : Comitelid
+        Returns
+        -------
+        bool
+        '''
+        return not (other < self)
+
+    def __ge__(self, other):
+        '''
+        GREATER THAN OR EQUAL
+        Vergelijkt twee Comitéleden
+        Geeft True indien self groter dan of gelijk is aan other.
+        Parameters
+        ----------
+        other : Comitelid
+        Returns
+        -------
+        bool
+        '''
+        return not (self < other)
 
     def __eq__(self, other):
         '''
@@ -169,35 +191,7 @@ class Comitelid:
         -------
         bool
         '''
-        return self.getNaam() == other.getNaam() and self.getAdres() == other.getAdres()
-
-    def __le__(self, other):
-        '''
-        LESS THAN OR EQUAL
-        Vergelijkt twee Comitéleden
-        Geeft True indien self kleiner dan of gelijk is aan other.
-        Parameters
-        ----------
-        other : Comitelid
-        Returns
-        -------
-        bool
-        '''
-        return self < other or self == other
-
-    def __ge__(self, other):
-        '''
-        GREATER THAN OR EQUAL
-        Vergelijkt twee Comitéleden
-        Geeft True indien self groter dan of gelijk is aan other.
-        Parameters
-        ----------
-        other : Comitelid
-        Returns
-        -------
-        bool
-        '''
-        return self > other or self == other
+        return not (self < other) and not (other < self)
 
     def __ne__(self, other):
         '''

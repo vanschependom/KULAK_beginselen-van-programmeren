@@ -69,7 +69,7 @@ def main():
     # Merge lijsten zonder duplicates: setup=genereerTweeLijsten N=14
     algoritmen = [mergeLijstSet, mergeLijstForLus]
     test(algoritmen, genereerTweeLijsten,
-         aRange=numpy.logspace(1, 18, num=18, base=2))
+         aRange=numpy.logspace(1, 16, num=16, base=2))
 
 
 main()

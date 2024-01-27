@@ -14,6 +14,7 @@ Hieronder geven we aan hoe we de verschillende elementen van de vraag modelleren
 
 import random
 
+
 def check_doos(doos, pakje):
     """
     Bekijkt of pakje in de doos kan, volgens de onder en bovengrenzen van de doos.
@@ -27,11 +28,11 @@ def check_doos(doos, pakje):
     bool
         True als pakje in doos past
     """
-    
+
     if doos['verdeelcentrum'] == pakje['verdeelcentrum'] and not doos['vol']:
-        
+
         nieuwe_hoogte = pakje['hoogte'] + doos['huidige_hoogte']
-        
+
         if nieuwe_hoogte < doos['ondergrens']:
             return True
         elif nieuwe_hoogte < doos["hoogte"]:
@@ -41,7 +42,7 @@ def check_doos(doos, pakje):
                 return False
         else:
             return False
-    
+
     else:
         return False
 
@@ -54,9 +55,10 @@ def voeg_pakje_toe_aan_doos(pakje, doos):
     pakje: dict
     doos: dict
     """
-    
+
     doos['pakjes'].append(pakje)
     doos['huidige_hoogte'] += pakje['hoogte']
+
 
 def start_nieuwe_doos(verdeelcentrum, dooshoogte=50., ondergrens=30., bovengrens=40.):
     """
@@ -77,16 +79,16 @@ def start_nieuwe_doos(verdeelcentrum, dooshoogte=50., ondergrens=30., bovengrens
     dict
         De lege doos
     """
-    
+
     doos = {"verdeelcentrum": verdeelcentrum, "hoogte": dooshoogte, "ondergrens": ondergrens, "bovengrens": bovengrens,
             "pakjes": [], "huidige_hoogte": 0, "vol": False}
-    
+
     return doos
-    
+
 
 def sorteer_pakjes(magazijn, vrijwilligers):
     """
-    
+
     Parameters
     ----------
     magazijn: list
@@ -99,7 +101,7 @@ def sorteer_pakjes(magazijn, vrijwilligers):
     list
         Gesorteerd magazijn
     """
-    
+
     for vrijwilliger in vrijwilligers:
         for pakje in vrijwilliger:
             pakje_toegevoegd_aan_doos = False
@@ -110,8 +112,9 @@ def sorteer_pakjes(magazijn, vrijwilligers):
                 doos = start_nieuwe_doos(pakje['verdeelcentrum'])
                 voeg_pakje_toe_aan_doos(pakje, doos)
                 magazijn.append(doos)
-            
+
     return magazijn
+
 
 # Het modelleren van de main functie werd niet expliciet gevraagd in de opgave.
 # Maar dit is handig voor het testen van je code
@@ -119,11 +122,12 @@ if __name__ == '__main__':
     magazijn = []
     verdeelcentra = ["PCtje Bissegem", "Den Bras", "De Lange Munte"]
     nmb_vrijwilligers = 9
-    
+
     pakjes = []
     for p in range(3*nmb_vrijwilligers):
-        pakjes.append({"verdeelcentrum": random.choice(verdeelcentra), "hoogte": random.random()*20+10})
-    
+        pakjes.append({"verdeelcentrum": random.choice(
+            verdeelcentra), "hoogte": random.random()*20+10})
+
     vrijwilligers = []
     for v in range(nmb_vrijwilligers):
         vrijwilliger = []
@@ -131,9 +135,10 @@ if __name__ == '__main__':
             pakje = pakjes.pop()
             vrijwilliger.append(pakje)
         vrijwilligers.append(vrijwilliger)
-        
+
     magazijn = sorteer_pakjes(magazijn, vrijwilligers)
     for doos in magazijn:
         print(f"{doos['verdeelcentrum']}")
+        print(f"{doos['hoogte']}")
         for pakje in doos['pakjes']:
             print(f"\t{pakje['verdeelcentrum']}: {pakje['hoogte']}")
